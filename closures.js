@@ -1,81 +1,34 @@
-/* 
-  Once you complete a problem, refresh ./closures.html in your browser and check to see if the problem's test(s) are passing.
-  Passed tests will be indicated by a green circle.
-  Failed tests will be indicated by a red X.
-
-  You can refresh the page at any time to re-run all the tests.
-*/
-
-////////// PROBLEM 1 //////////
-
-// Do not edit the code below.
-function outer() {
-  var name = 'Tyler';
-  return function() {
-    return 'The original name was ' + name;
-  };
-}
-// Do not edit the code above.
-  
-/* 
-  Above you're given a function that returns another function which has a closure over the name variable.
-  Invoke outer saving the return value into another variable called 'inner'.
-*/
-  
-// Code Here
-
-
-
-//Once you do that, invoke inner.
-
-//Code Here
-
-
-
-////////// PROBLEM 2 //////////
-
-// Do not edit the code below.
-function callFriend(name) {
-  function dial(number) {
-    return 'Calling ' + name + ' at ' + number
-  }
-  return dial;
-}
-// Do not edit the code above.
-
-/*
-  Above you're given a callFriend function that returns the dial function.
-  Store the result of invoking callFriend in a variable named callJake.
-  
-  When callJake is invoked with '435-555-9248', it returns 'Calling Jake at 435-555-9248' 
-  (HINT: You will need to pass in arguments to both function invocations)
-*/
-
-//Code Here
-
-
-
-////////// PROBLEM 3 //////////
-
-/*
-  Write a function called makeCounter that makes the following code work properly.
-*/
-
-//Code Here
-
-
-
-//Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
-
-
-
+// ////////// PROBLEM 1 //////////
+// function outer() {
+//   var name = 'Tyler';
+//   return function() {
+//     return 'The original name was ' + name;
+//   };
+// }  
+// var inner = outer();
+// inner;
+// ////////// PROBLEM 2 //////////
+// function callFriend(name) {
+//   function dial(number) {
+//     return 'Calling ' + name + ' at ' + number
+//   }
+//   return dial;
+// }
+// var callJake = callFriend("Jake", (435-555-9248));
+// ////////// PROBLEM 3 //////////
+// /*
+//   Write a function called makeCounter that makes the following code work properly.
+// */
+// function makeCounter(){
+// return function count(){
+// count()++}};
+// var count = makeCounter();
+// count(); 
+// count(); 
+// count(); 
+// count(); 
+// console.log(count());
 ////////// PROBLEM 4 //////////
-
 /*
   Inside the function called counterFactory return two functions that implement up/down counter.
   The first function is called inc, this function is responsible for incrementing the value once and returning the updated value.
@@ -86,48 +39,34 @@ function callFriend(name) {
 */
 
 function counterFactory(value) {
-  // Code here.
-
   return {
-
-  };
+  inc(){
+  return ++value
+  },
+  dec(){
+  return --value
+      }
+  }
 }
 
 counter = counterFactory(10);
-// counter.inc() // 11
-// counter.inc() // 12
-// counter.inc() // 13
-// counter.dec() // 12
+ counter.inc()
+ counter.inc()
+ counter.inc()
+ counter.dec()
 
-
-
-////////// PROBLEM 5 //////////
-
-/*
-  Inside the motivation function create another function called message that will return the welcome text with the firstname and lastname.
-  The final message should say "You're doing awesome, keep it up firstname lastname." 
-  (Hint: don't forget to have a space between the firstname and lastname and a period at the end of the sentence.)
-*/
-
+// ////////// PROBLEM 5 //////////
 function motivation( firstname, lastname ) {
+
   var welcomeText = "You're doing awesome, keep it up";
 
-  // code message function here.
-
-  //Uncommment this to return the value of your message function
-  //return message;
-}
-
+  function message(){
+  return  welcomeText + " "  + firstname + " " + lastname + ".";
+    } return message();
+  }
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
-
-
-
+console.log(greeting);
 ////////// PROBLEM 6 //////////
-
-/*
-  Inside the module's return object create a publicMethod function that invokes privateMethod (return the result).
-  Invoke this by calling module.publicMethod(); outside the module scope
-*/
 
 var module = (function() {
   var person = {
@@ -139,34 +78,24 @@ var module = (function() {
   function privateMethod(){
     return "Hi, I'm " + person.name + ", age " + person.age + " from " + person.location;
   }
+ return{ 
+    publicMethod(){
+    return privateMethod();}
+}})();
 
-  // Anything that is being returned is made public and can be invoked from
-  // outside our lexical scope
-  return {
-    // Code here.
-  };
-})();
-
-
-
+module.publicMethod();
 ////////// PROBLEM 7 //////////
-
-/*
-  Here we have a function named secretNumber that has a secret number.
-  Inside the return object, create two methods called addToSecret and takeAwayFromSecret.
-  addToSecret should have a parameter that is added to the secret number returning the updated secret number.
-  takeAwayFromSecret should have a parameter that takes away from the secret number returning the updated secret number.
-*/
-
 function secretNumber() {
   var secret = 143;
-
   return {
-    // Code here
-  };
-}
+    addToSecret(addnum){
+      return secret += addnum
+    },
+    takeAwayFromSecret(subnum){
+      return secret -= subnum
+    }}}
 
-
+console.log(secretNumber().addToSecret(150))
 
 ////////// PROBLEM 8 //////////
   
